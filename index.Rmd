@@ -1,0 +1,84 @@
+---
+title: "A Title"
+subtitle: "A Subtitle"
+author:  'R Lille (<a href="https://rlille.fr/" target="_blank"><i class="fas fa-home"></i> rlille.fr</a>)'
+institute: ""
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+knit: (function(inputFile, encoding) rmarkdown::render(inputFile, encoding = encoding, output_file = "docs/index.html"))
+params:
+  content: ['content/content.Rmd']
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    mathjax: null
+    css: [assets/default.css, assets/fonts.css, assets/rlille.css]
+    includes:
+      in_header: assets/_scripts.html
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      ratio: "16:9"
+      countIncrementalSlides: false
+---
+
+```{r setup, include = FALSE}
+options("width" = 110)
+options(htmltools.dir.version = FALSE)
+
+suppressPackageStartupMessages({
+  library(here)
+  library(knitr)
+
+  library(data.table)
+
+  library(ragg)
+  library(svglite)
+  library(showtext)
+
+  library(ggplot2)
+  library(ggtext)
+  library(patchwork)
+})
+```
+
+```{r setup-knitr, include = FALSE}
+opts_chunk$set(
+  eval = TRUE, # Default: TRUE
+  include = TRUE, # Default: TRUE
+  echo = TRUE, # Default: TRUE
+  width = getOption("width"),
+  comment = "#>",
+  fig.align = "center",
+  fig.width = 11.5, # Default: 7
+  fig.height = 5.75,  # Default: 7
+  dpi = 150, # Default: 72
+  dev = "svglite", # Alt: ragg_png
+  dev.args = list(
+    web_fonts = list("https://fonts.googleapis.com/css?family=Alegreya+Sans")
+  )
+)
+font_add_google("Alegreya Sans", "Alegreya Sans", regular.wt = 300)
+showtext_auto()
+```
+
+```{r setup-ggplot2, code = source(here("assets/setup-ggplot2-rlille.R")), include = FALSE}
+```
+
+```{r, child = params[["content"]]}
+```
+
+---
+class: part-slide
+
+.center[
+<a href="https://rlille.fr/" target="_blank"><img src="https://raw.githubusercontent.com/mcanouil/hex-stickers/main/SVG/rlille.svg" width = "200px"/></br>
+<img src="https://raw.githubusercontent.com/RLille/logos/main/RConsortium_Horizontal_Pantone.png" width = "200px"/>
+</br>
+<i style="font-size: 200%">rlille.fr</i>
+</a>
+]
