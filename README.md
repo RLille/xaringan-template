@@ -1,5 +1,5 @@
 
-# xaringan-template
+# xaringan-template <a href="https://github.com/RLille/"><img src="https://avatars1.githubusercontent.com/u/60702180" align="right" width="120" /></a>
 
 <!-- badges: start -->
 
