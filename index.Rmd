@@ -4,7 +4,6 @@ subtitle: "A Subtitle"
 author:  'R Lille (<a href="https://rlille.fr/" target="_blank"><i class="fas fa-home"></i> rlille.fr</a>)'
 institute: ""
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
-knit: (function(inputFile, encoding) rmarkdown::render(inputFile, encoding = encoding, output_file = "docs/index.html"))
 params:
   content: ['content/content.Rmd']
 output:
@@ -16,6 +15,7 @@ output:
       in_header: assets/_scripts.html
     nature:
       highlightStyle: github
+      highlightLanguage: r
       highlightLines: true
       slideNumberFormat: |
         <div class="progress-bar-container">
